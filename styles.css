@@ -7,36 +7,48 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
+    animation: backgroundAnimation 10s infinite alternate;
 }
 
 .container {
     text-align: center;
     color: #fff;
+    animation: fadeIn 2s;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 3s;
+}
+
+.status {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    animation: fadeIn 2s;
+    animation: fadeIn 4s;
 }
 
 .photo-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
+    animation: fadeIn 5s;
 }
 
 .photo-gallery img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     margin: 10px;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    border-radius: 20px;
+    transition: transform 0.5s, box-shadow 0.5s;
+    animation: slideIn 3s;
 }
 
 .photo-gallery img:hover {
     transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes fadeIn {
@@ -44,6 +56,26 @@ h1 {
         opacity: 0;
     }
     to {
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundAnimation {
+    from {
+        background: linear-gradient(to right, #ff6e7f, #bfe9ff);
+    }
+    to {
+        background: linear-gradient(to left, #ff6e7f, #bfe9ff);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
         opacity: 1;
     }
 }
